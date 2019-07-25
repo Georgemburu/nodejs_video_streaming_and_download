@@ -1,0 +1,16 @@
+{
+  "name": "streamingvideo",
+  "version": "1.0.0",
+  "description": "A simple nodejs application for video streaming",
+  "main": "app.js",
+  "scripts": {
+    "start":"nodemon app.js"
+  },
+  "keywords": [
+    "Video",
+    "Streaming",
+    "nodejs_video_streaming"
+  ],
+  "author": "George Mburu",
+  "license": "ISC"
+}

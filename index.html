@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nodejs Video Streaming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <video controls>
+        <source  src="/video" type="video/mp4"></source>
+    </video>
+    <button id="dwd">download</button>
+    <script>
+        let dwd = document.getElementById('dwd');
+        dwd.addEventListener('click',(e)=>{
+            fetch('/download').then((res)=>res.blob()).then((data)=>{
+                console.log(data)
+                var url = window.URL.createObjectURL(data);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = "musicVideo.mp4"
+                a.title = "music"
+                // a.protocol = 'google.com'
+                console.log(a)
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url)
+
+            }).catch((error)=>{
+                console.log(error)
+            })
+        })
+        </script>
+</body>
+</html>
